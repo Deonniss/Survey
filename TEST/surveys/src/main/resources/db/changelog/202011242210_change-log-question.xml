@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="gdb" id="202011242210_create_table_question">
+        <createTable tableName="question">
+            <column autoIncrement="false" name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="question_pkey"/>
+            </column>
+            <column name="text" type="VARCHAR(150)"/>
+            <column name="display_order" type="INTEGER"/>
+            <column name="survey_id" type="UUID"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="gdb" id="202011242210_add_question_fk_survey">
+        <addForeignKeyConstraint baseTableName="question"
+                                 baseColumnNames="survey_id"
+                                 constraintName="survey_id_fk"
+                                 referencedTableName="survey"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

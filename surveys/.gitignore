@@ -1,3 +1,4 @@
+git rm --cached --ignore-unmatch application.yml
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
